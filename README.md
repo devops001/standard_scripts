@@ -21,23 +21,26 @@ Example:
 
   stdout:
 
-    devops001@ubuntu:~/github/standard_scripts> ./test.sh
-    begin
-    ./test.sh: line 25: fake1: command not found
-    fake1 command failed. it returned: 127
-    ./test.sh: line 37: fake2: command not found
-    20140821.1444.24 | test.sh | abended on line number 37 (runtime user: devops001)
-
+```
+devops001@ubuntu:~/github/standard_scripts> ./test.sh
+begin
+./test.sh: line 25: fake1: command not found
+fake1 command failed. it returned: 127
+./test.sh: line 37: fake2: command not found
+20140821.1444.24 | test.sh | abended on line number 37 (runtime user: devops001)
+```
   logging:
 
-    devops001@ubuntu:~/github/standard_scripts> cat logs/audit.log 
-    20140821.1444.24 | test.sh | abended on line number 37 (runtime user: devops001)
-
-    devops001@ubuntu:~/github/standard_scripts> cat logs/detail.log 
-    20140821.1444.24 | test.sh | error_handling.sh was called.
-    20140821.1444.24 | test.sh | rm_error_handling.sh was called.
-    ./test.sh: line 25: fake1: command not found
-    20140821.1444.24 | test.sh | error_handling.sh was called.
-    ./test.sh: line 37: fake2: command not found
-    20140821.1444.24 | test.sh | abended on line number 37 (runtime user: devops001)
-
+```
+devops001@ubuntu:~/github/standard_scripts> cat logs/audit.log 
+20140821.1444.24 | test.sh | abended on line number 37 (runtime user: devops001)
+```
+```
+devops001@ubuntu:~/github/standard_scripts> cat logs/detail.log 
+20140821.1444.24 | test.sh | error_handling.sh was called.
+20140821.1444.24 | test.sh | rm_error_handling.sh was called.
+./test.sh: line 25: fake1: command not found
+20140821.1444.24 | test.sh | error_handling.sh was called.
+./test.sh: line 37: fake2: command not found
+20140821.1444.24 | test.sh | abended on line number 37 (runtime user: devops001)
+```
