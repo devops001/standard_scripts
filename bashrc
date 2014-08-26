@@ -29,10 +29,6 @@ if [ -x /usr/bin/command-not-found ]; then
 	}
 fi
 
-#############################
-# devops001 changes
-#############################
-
 # put local bin dirs at the front of PATH:
 export PATH=$HOME/bin:$PATH
 
