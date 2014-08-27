@@ -1,12 +1,16 @@
-runtime! debian.vim
 
-if has("automcmd")
-  filetype indent on
-endif
+filetype plugin on
+filetype indent on
 
 syntax on
 
 set background=dark
+
+set fileformat=unix
+set fileformats=unix
+
+set modelines=0
+set nomodeline
 
 set showcmd
 set showmatch
@@ -14,4 +18,5 @@ set showmatch
 set tabstop=2
 set sw=2
 set ts=2
+
 
