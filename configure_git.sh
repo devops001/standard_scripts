@@ -15,6 +15,6 @@ git config --global alias.last 'log -1 HEAD'
 # other:
 git config --global core.editor vi
 git config --global color.ui true
-
+git config --global push.default simple
 
 git config --global --list
