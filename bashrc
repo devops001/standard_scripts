@@ -11,21 +11,27 @@ xterm*|rxvt*)
   ;;
 esac
 
-# colored prompt (red if root):
-if [[ $UID -eq 0 ]]; then
-    export PS1="\[\e[31;1m\]\u\[\e[30;1m\]@\[\e[31;1m\]\H\[\e[30;1m\]:\[\e[34;1m\]\w\[\e[30;1m\]> \[\e[0m\]"
-else
-    export PS1="\[\e[30;0m\]\u\[\e[30;1m\]@\[\e[30;0m\]\H\[\e[30;1m\]:\[\e[34;1m\]\w\[\e[30;1m\]> \[\e[0m\]"
-fi
+black="$(tput setaf 0)"
+red="$(tput setaf 1)"
+green="$(tput setaf 2)"
+yellow="$(tput setaf 3)"
+blue="$(tput setaf 4)"
+purple="$(tput setaf 5)"
+cyan="$(tput setaf 6)"
+white="$(tput setaf 7)"
+bold="$(tput bold)"
+reset="$(tput sgr0)"
+
+export PS1="$bold$white\u$black@$bold$green\h$black:$bold$blue\w$black> $reset"
 
 # enable bash completion in interactive shells
 if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+  . /etc/bash_completion
 fi
 
 # if the command-not-found package is installed, use it
 if [ -x /usr/bin/command-not-found ]; then
-	function command_not_found_handle {
+  function command_not_found_handle {
     /usr/bin/command-not-found $1
     return $?
 	}
@@ -46,8 +52,9 @@ if [ -d ~/.rbenv ]; then
 fi
 
 # git:
-source ~/.git-completion.bash
-alias gst='git status'
+if [ -f ~/.git-completion.bash ]; then
+  source ~/.git-completion.bash
+fi
 
 
 
