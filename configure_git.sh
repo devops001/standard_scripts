@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+NAME=""
+EMAIL=""
+
 # identity:
-git config --global user.name "devops001"
-git config --global user.email "devops001@gmail.com"
+git config --global user.name "$NAME"
+git config --global user.email "$EMAIL"
 
 # aliases:
 git config --global alias.co checkout

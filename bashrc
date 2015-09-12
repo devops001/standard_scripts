@@ -11,19 +11,6 @@ xterm*|rxvt*)
   ;;
 esac
 
-black="$(tput setaf 0)"
-red="$(tput setaf 1)"
-green="$(tput setaf 2)"
-yellow="$(tput setaf 3)"
-blue="$(tput setaf 4)"
-purple="$(tput setaf 5)"
-cyan="$(tput setaf 6)"
-white="$(tput setaf 7)"
-bold="$(tput bold)"
-reset="$(tput sgr0)"
-
-export PS1="$bold$white\u$black@$bold$green\h$black:$bold$blue\w$black> $reset"
-
 # enable bash completion in interactive shells
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
@@ -34,7 +21,7 @@ if [ -x /usr/bin/command-not-found ]; then
   function command_not_found_handle {
     /usr/bin/command-not-found $1
     return $?
-	}
+  }
 fi
 
 # for vi like commands
@@ -55,6 +42,8 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
+alias gst='git status'
 
-
+# color prompt:
+PS1='${debian_chroot:+($debian_chroot)}\[\033[00;34m\]\u\[\033[00m\]@\[\033[01;30m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
