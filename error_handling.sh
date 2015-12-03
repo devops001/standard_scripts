@@ -16,13 +16,13 @@ report_error() {
   STAMP=$(date '+%Y%m%d.%H%M.%S')
   APP=$(basename $0)
   GRP=$(whoami)
-	OBJ=abend
-	SEV=critical
+  OBJ=abend
+  SEV=critical
   MSG="$STAMP | $APP | abended on line number $1 (runtime user: $GRP)"
 
   # attempt to send an alert to ops via HP's OpenView:
   if [[ -n $OPENVIEW_CMD && -x $OPENVIEW_CMD ]]; then
-	  $OPENVIEW_CMD sev="$SEV" application="$APP" msg_grp="$GRP" object="$OBJ" msg_text="$MSG"
+    $OPENVIEW_CMD sev="$SEV" application="$APP" msg_grp="$GRP" object="$OBJ" msg_text="$MSG"
   fi
 
   # attempt to log to the standard DETAIL_LOG:
